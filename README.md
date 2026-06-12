@@ -1,6 +1,6 @@
 # workspace-desktop-apps
 
-Collection of desktop apps for ThinLinc.
+Collection of desktop apps for remote desktop implementations such as ThinLinc.
 
 Goals:
 * Desktop apps are added and changes under version control.
