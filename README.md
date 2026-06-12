@@ -1,19 +1,19 @@
-# thinlinc-desktop-apps
+# workspace-desktop-apps
 
 Collection of desktop apps for ThinLinc.
 
 Goals:
 * Desktop apps are added and changes under version control.
 * Changes need to be submitted as pull requests that need reviews and approval.
-* Sync to the ThinLinc server is done whenever a push or merge to the `main` branch happens.
+* Sync to the host server is done whenever a push or merge to the `main` branch happens.
 
 ---
 
 A collection of desktop application launchers for the
-[ThinLinc](https://www.cendio.com/thinlinc) remote desktop environment on
+remote desktop environment such as [ThinLinc](https://www.cendio.com/thinlinc) on
 RCC's HPC cluster. Each app submits an interactive SLURM job and either opens
 a terminal, a web-based IDE, or a GUI application on the allocated compute
-node — all from a single click on the ThinLinc desktop.
+node — all from a single click on the desktop.
 
 ---
 
@@ -30,7 +30,7 @@ node — all from a single click on the ThinLinc desktop.
 
 ## Prerequisites
 
-All scripts require the following to be available on the ThinLinc login nodes:
+All scripts require the following to be available on the login nodes:
 
 - **SLURM** — `srun`, `salloc`, `squeue`, `scancel`
 - **zenity** — for confirmation dialogs (`sudo apt install zenity`)
@@ -42,6 +42,8 @@ All scripts require the following to be available on the ThinLinc login nodes:
 
 Software modules (`matlab`, `rstudio`, `vscode-server`) must be available
 via the `module` command on the compute nodes.
+
+Note that the instructions below are not restricted to [ThinLinc](https://www.cendio.com/thinlinc), and for concreteness.
 
 ---
 
