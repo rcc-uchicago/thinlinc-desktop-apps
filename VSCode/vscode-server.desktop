@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=VS Code Server
+Name[en_US]=VS Code Server
+Comment=Launch VS Code Server on a SLURM compute node.
+Comment[en_US]=Launch VS Code Server on a SLURM compute node.
+Exec=/usr/local/share/thinlinc-desktop-apps/VSCode/vscode-server.sh
+Icon=com.visualstudio.code
+Categories=Development;IDE;

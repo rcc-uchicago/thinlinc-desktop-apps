@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=RStudio Server
+Name[en_US]=RStudio Server
+Comment=Launch RStudio Server on a SLURM compute node.
+Comment[en_US]=Launch RStudio Server on a SLURM compute node.
+Exec=/usr/local/share/thinlinc-desktop-apps/RStudio/rstudio-server.sh
+Icon=rstudio
+Categories=Science;Education;

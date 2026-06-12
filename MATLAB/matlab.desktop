@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=MATLAB
+Name[en_US]=MATLAB
+Comment=Launch MATLAB on a SLURM compute node (X11).
+Comment[en_US]=Launch MATLAB on a SLURM compute node (X11).
+Exec=/usr/local/share/thinlinc-desktop-apps/MATLAB/matlab.sh
+Icon=matlab
+Categories=Science;Education;
