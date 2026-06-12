@@ -25,7 +25,7 @@ All scripts require the following to be available on the ThinLinc login nodes:
 
 - **SLURM** — `srun`, `salloc`, `squeue`, `scancel`
 - **zenity** — for confirmation dialogs (`sudo apt install zenity`)
-- **mate-terminal** — the MATE Desktop terminal emulator
+- **gnome-terminal** — the GNOME terminal emulator
 - **ssh** — for port forwarding (RStudio and VS Code apps)
 - **xdg-open** — to open the default browser (RStudio and VS Code apps)
 - **python3** — for dynamic port selection (RStudio and VS Code apps)

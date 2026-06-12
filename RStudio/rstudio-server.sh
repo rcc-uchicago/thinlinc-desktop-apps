@@ -5,7 +5,7 @@
 # that node, creates an SSH port-forwarding tunnel, and opens the browser
 # on the ThinLinc desktop. Intended for use as a ThinLinc desktop application.
 #
-# Requirements: zenity, mate-terminal, ssh, xdg-open, python3, SLURM
+# Requirements: zenity, gnome-terminal, ssh, xdg-open, python3, SLURM
 
 # ---------------------------------------------------------------------------
 # Configuration — adjust these to match your cluster
@@ -28,7 +28,7 @@ zenity --info \
     --no-wrap 2>/dev/null || true
 
 # Open a terminal that runs the full setup process
-mate-terminal \
+gnome-terminal \
     --title="RStudio Server on Compute Node" \
-    -x bash "$SCRIPT_DIR/rstudio-server-launch.sh" \
+    -- bash "$SCRIPT_DIR/rstudio-server-launch.sh" \
         "$PARTITION" "$CORES" "$HOURS" "$RSTUDIO_MODULE" "$NODE_SCRIPT"

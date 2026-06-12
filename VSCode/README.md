@@ -16,7 +16,7 @@ desktop, and opens the browser automatically.
 ## How it works
 
 1. A confirmation dialog (via `zenity`) shows the requested resources.
-2. `vscode-server-launch.sh` runs inside a `mate-terminal` window and:
+2. `vscode-server-launch.sh` runs inside a `gnome-terminal` window and:
    - Calls `salloc --no-shell` to obtain a SLURM allocation.
    - Polls `squeue` until the allocated node hostname is known.
    - Finds a free local TCP port.

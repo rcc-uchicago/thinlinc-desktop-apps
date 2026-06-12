@@ -15,7 +15,7 @@ compute node directly from the ThinLinc desktop.
 
 1. A confirmation dialog (via `zenity`) shows the requested resources.
 2. `srun` submits an interactive job to SLURM and waits for a compute node.
-3. A `mate-terminal` window opens with a shell on the allocated node.
+3. A `gnome-terminal` window opens with a shell on the allocated node.
 4. The `srun` command that was used is printed in the terminal so users can
    learn from it and reproduce it themselves.
 5. When the terminal is closed, the SLURM job is automatically released.

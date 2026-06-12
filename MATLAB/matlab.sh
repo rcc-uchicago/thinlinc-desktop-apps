@@ -5,7 +5,7 @@
 # and launches the MATLAB GUI on the allocated compute node. The MATLAB
 # window appears on the ThinLinc desktop just like a local application.
 #
-# Requirements: zenity, mate-terminal, SLURM (srun with --x11 support)
+# Requirements: zenity, gnome-terminal, SLURM (srun with --x11 support)
 
 # ---------------------------------------------------------------------------
 # Configuration — adjust these to match your cluster
@@ -22,9 +22,9 @@ zenity --info \
 
 CMD="srun --partition=$PARTITION --nodes=1 --ntasks=1 --cpus-per-task=$CORES --time=$HOURS:00:00 --job-name=matlab --x11 --pty bash"
 
-mate-terminal \
+gnome-terminal \
     --title="MATLAB on Compute Node" \
-    -x bash -c "$CMD -c '
+    -- bash -c "$CMD -c '
         echo
         echo \"Job started on \$HOSTNAME. Loading MATLAB module...\"
         echo \"Command used: $CMD\"

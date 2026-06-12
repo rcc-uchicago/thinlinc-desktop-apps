@@ -1,7 +1,7 @@
 #!/bin/bash
 # rstudio-server-launch.sh
 #
-# Helper script that runs INSIDE the mate-terminal window.
+# Helper script that runs INSIDE the gnome-terminal window.
 # It allocates a SLURM node, starts RStudio Server, establishes an SSH port
 # tunnel back to the ThinLinc desktop, and opens the browser.
 #

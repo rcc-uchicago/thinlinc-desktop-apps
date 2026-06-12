@@ -15,7 +15,7 @@ directly on the ThinLinc desktop — no browser or extra setup required.
 
 1. A confirmation dialog (via `zenity`) shows the requested resources.
 2. `srun` submits an interactive job with `--x11` and `--pty bash`.
-3. A `mate-terminal` window opens, showing the allocated compute node hostname.
+3. A `gnome-terminal` window opens, showing the allocated compute node hostname.
 4. The MATLAB module is loaded and `matlab` is started on the compute node.
 5. Because `--x11` is set, the MATLAB GUI window is forwarded back to the
    ThinLinc desktop via X11 and appears as a regular desktop window.

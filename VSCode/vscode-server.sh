@@ -5,7 +5,7 @@
 # that node, creates an SSH port-forwarding tunnel, and opens the browser
 # on the ThinLinc desktop. Intended for use as a ThinLinc desktop application.
 #
-# Requirements: zenity, mate-terminal, ssh, xdg-open, python3, SLURM
+# Requirements: zenity, gnome-terminal, ssh, xdg-open, python3, SLURM
 
 # ---------------------------------------------------------------------------
 # Configuration — adjust these to match your cluster
@@ -25,8 +25,8 @@ zenity --info \
     --text="This will start VS Code Server on a compute node.\n\nPartition: $PARTITION\nCPU cores: $CORES\nMax runtime: $HOURS hours\n\nA browser window will open when the server is ready." \
     --no-wrap 2>/dev/null || true
 
-mate-terminal \
+gnome-terminal \
     --title="VS Code Server on Compute Node" \
-    -x bash "$SCRIPT_DIR/vscode-server-launch.sh" \
+    -- bash "$SCRIPT_DIR/vscode-server-launch.sh" \
         "$PARTITION" "$CORES" "$HOURS" "$VSCODE_MODULE" \
         "$SCRIPT_DIR/vscode-server-node.sh"
