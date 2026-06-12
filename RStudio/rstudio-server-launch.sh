@@ -11,6 +11,7 @@
 #   $3  Max runtime in hours
 #   $4  Module name for RStudio
 #   $5  Path to the node-side startup script (rstudio-server-node.sh)
+#   $6  SLURM account (pi-* group, may be empty)
 
 set -e
 
@@ -19,9 +20,11 @@ CORES="${2:-4}"
 HOURS="${3:-4}"
 RSTUDIO_MODULE="${4:-rstudio}"
 NODE_SCRIPT="${5}"
+ACCOUNT="${6:-}"
 
 echo "=== RStudio Server Launcher ==="
 echo "Partition : $PARTITION"
+echo "Account   : ${ACCOUNT:-none}"
 echo "Cores     : $CORES"
 echo "Max time  : $HOURS hours"
 echo ""
@@ -30,6 +33,7 @@ echo "Requesting SLURM allocation..."
 # Request an interactive allocation (no-shell = returns immediately with job ID)
 ALLOC_OUT=$(salloc \
     --partition="$PARTITION" \
+    ${ACCOUNT:+--account="$ACCOUNT"} \
     --nodes=1 --ntasks=1 \
     --cpus-per-task="$CORES" \
     --time="$HOURS:00:00" \

@@ -15,6 +15,9 @@ CORES=4
 HOURS=4
 RSTUDIO_MODULE="rstudio"
 
+# Detect the first SLURM account (pi-* group) for the current user
+ACCOUNT=$(groups 2>/dev/null | tr ' ' '\n' | grep '^pi-' | head -1)
+
 # ---------------------------------------------------------------------------
 # Path to the helper script that runs on the compute node.
 # Must be accessible from compute nodes (e.g., on shared storage).
@@ -24,11 +27,11 @@ NODE_SCRIPT="$SCRIPT_DIR/rstudio-server-node.sh"
 
 zenity --info \
     --title="RStudio Server on Compute Node" \
-    --text="This will start RStudio Server on a compute node.\n\nPartition: $PARTITION\nCPU cores: $CORES\nMax runtime: $HOURS hours\n\nA browser window will open when the server is ready." \
+    --text="This will start RStudio Server on a compute node.\n\nPartition: $PARTITION\nAccount: ${ACCOUNT:-none detected}\nCPU cores: $CORES\nMax runtime: $HOURS hours\n\nA browser window will open when the server is ready." \
     --no-wrap 2>/dev/null || true
 
 # Open a terminal that runs the full setup process
 gnome-terminal \
     --title="RStudio Server on Compute Node" \
     -- bash "$SCRIPT_DIR/rstudio-server-launch.sh" \
-        "$PARTITION" "$CORES" "$HOURS" "$RSTUDIO_MODULE" "$NODE_SCRIPT"
+        "$PARTITION" "$CORES" "$HOURS" "$RSTUDIO_MODULE" "$NODE_SCRIPT" "$ACCOUNT"

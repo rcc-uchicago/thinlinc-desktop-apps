@@ -11,6 +11,7 @@
 #   $3  Max runtime in hours
 #   $4  Module name for VS Code Server
 #   $5  Path to the node-side startup script (vscode-server-node.sh)
+#   $6  SLURM account (pi-* group, may be empty)
 
 set -e
 
@@ -19,9 +20,11 @@ CORES="${2:-4}"
 HOURS="${3:-4}"
 VSCODE_MODULE="${4:-vscode-server}"
 NODE_SCRIPT="${5}"
+ACCOUNT="${6:-}"
 
 echo "=== VS Code Server Launcher ==="
 echo "Partition : $PARTITION"
+echo "Account   : ${ACCOUNT:-none}"
 echo "Cores     : $CORES"
 echo "Max time  : $HOURS hours"
 echo ""
@@ -29,6 +32,7 @@ echo "Requesting SLURM allocation..."
 
 ALLOC_OUT=$(salloc \
     --partition="$PARTITION" \
+    ${ACCOUNT:+--account="$ACCOUNT"} \
     --nodes=1 --ntasks=1 \
     --cpus-per-task="$CORES" \
     --time="$HOURS:00:00" \

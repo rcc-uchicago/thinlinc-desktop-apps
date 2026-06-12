@@ -14,12 +14,15 @@ PARTITION="caslake"
 CORES=4
 HOURS=4
 
+# Detect the first SLURM account (pi-* group) for the current user
+ACCOUNT=$(groups 2>/dev/null | tr ' ' '\n' | grep '^pi-' | head -1)
+
 zenity --info \
     --title="Interactive Terminal on Compute Node" \
-    --text="This will launch an interactive terminal on a compute node.\n\nPartition: $PARTITION\nCPU cores: $CORES\nMax runtime: $HOURS hours" \
+    --text="This will launch an interactive terminal on a compute node.\n\nPartition: $PARTITION\nAccount: ${ACCOUNT:-none detected}\nCPU cores: $CORES\nMax runtime: $HOURS hours" \
     --no-wrap 2>/dev/null || true
 
-CMD="srun --partition=$PARTITION --nodes=1 --ntasks=1 --cpus-per-task=$CORES --time=$HOURS:00:00 --job-name=interactive --pty bash"
+CMD="srun --partition=$PARTITION ${ACCOUNT:+--account=$ACCOUNT} --nodes=1 --ntasks=1 --cpus-per-task=$CORES --time=$HOURS:00:00 --job-name=interactive --pty bash"
 
 gnome-terminal \
     --title="Interactive Terminal on Compute Node" \
